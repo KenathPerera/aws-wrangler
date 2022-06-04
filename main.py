@@ -92,7 +92,6 @@ dh = datahandler()
 #remove Dulicates
 final_result = dh.removeDuplicates(sort_data_frame,'email')
 print("Remove Duplicates by using email")
-print(final_result)
 
 
 #write to csv
