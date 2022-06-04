@@ -29,14 +29,14 @@ concatResult = pd.concat(frames)
 file_manager = filemanager()
 # delete exist csv files
 file_manager.deleteFile()
-print("Delete exist CSV Files")
+print("Delete Exist CSV Files")
 
 # write to csv
 try:
     file_manager.writeFile(concatResult, 'file3.csv')
     print("Write to CSV")
 except ValueError:
-    print("check dataframe array size")
+    print("Check dataframe array size")
 except:
     print("An exception occurred")
 
