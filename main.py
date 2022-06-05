@@ -66,7 +66,7 @@ except:
     print("An exception occurred")
 
 
-df2 = pd.DataFrame({
+df3 = pd.DataFrame({
     "id": [8,9,10],
     "email":["g@gmail.com","h@gmail.com","i@gmail.com"],
     "firstname": ["Vill","Keny","Tim"],
@@ -82,7 +82,7 @@ table = client.Table("pandaTable")
 ################
 print("DynamoDB put_items called")
 with table.batch_writer() as batch:
-    for i, row in df2.iterrows():
+    for i, row in df3.iterrows():
         batch.put_item(Item=row.to_dict())
 print("DynamoDB put_items completed")
 ###############
