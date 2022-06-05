@@ -66,21 +66,28 @@ except:
     print("An exception occurred")
 
 
-#################
-# print("DynamoDB put_items called")
-#     with table.batch_writer() as batch:
-#     for i, row in df.iterrows():
-#         batch.put_item(Item=row.to_dict())
-#     print("DynamoDB put_items completed")
-################
+df2 = pd.DataFrame({
+    "id": [8,9,10],
+    "email":["g@gmail.com","h@gmail.com","i@gmail.com"],
+    "firstname": ["Vill","Keny","Tim"],
+    "lastname":["Thil","Lah","Jhon"]
 
-#Read from Dynamo DB
+})
 
 # create dynamodb resource object and here dynamodb is resource name
 client = boto3.resource('dynamodb')
 
 # this will search for dynamoDB table
 table = client.Table("pandaTable")
+################
+print("DynamoDB put_items called")
+with table.batch_writer() as batch:
+    for i, row in df2.iterrows():
+        batch.put_item(Item=row.to_dict())
+print("DynamoDB put_items completed")
+###############
+
+#Read from Dynamo DB
 resp = table.scan()
 print("Read From DynamoDB")
 
